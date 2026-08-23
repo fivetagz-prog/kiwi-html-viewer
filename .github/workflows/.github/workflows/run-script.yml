@@ -1,0 +1,14 @@
+name: Run Extract Script
+on: [push, workflow_dispatch]
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Make script executable and run
+        run: |
+          chmod +x extractAllZips.sh
+          ./extractAllZips.sh -d directory
